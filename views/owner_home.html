@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease-in-out;
+      
+    } 
+    
+  </style>
+</script>
+
+</head>
+<body style="background-color: beige;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="#">
+            <img src="/dog11-removebg-preview.png" alt="Logo" width="50px" height="-200px" >
+            <h3 style="display: inline" >PURRFECTION </h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+       <!-- <a class="nav-link" aria-current="page" href="dog_profile.html">Profile</a> -->
+        <a class="nav-link" href="#contact">Contact us</a>
+      </div>
+    </div>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+       
+      <!-- Services-->
+       <div class="services">
+            <div class="container mt-5">
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                    <div class="card animate">
+                      <img src="/free-dog-wash-removebg-preview.png" class="card-img-top" alt="Service 1">
+                      <div class="card-body">
+                        <h5 class="card-title">Pet grooming</h5>
+                        <a href="/services/${Service}" class="btn btn-primary" id="button1">Browse</a>
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="card animate">
+                      <img src="/vetcare-removebg-preview.png" class="card-img-top" alt="Service 2" width="50%" height="50%">
+                      <div class="card-body">
+                        <h5 class="card-title">Vet care services</h5>
+                        <a href="/services/${Service}" class="btn btn-primary" id="button2">Browse</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="card animate">
+                      <img src="/dogsitting-removebg-preview.png" class="card-img-top" alt="Service 3">
+                      <div class="card-body">
+                        <h5 class="card-title">Dog sitting</h5>
+                        <a href="/services/${Service}" class="btn btn-primary" id="button3">Browse</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <footer style="background-image: url('/footer-bg-v3.jpg'); padding: 30px;">
+            <div id="contact">
+        <div class="container text-center" >
+            <div class="row">
+              <div class="col order-last">
+              <h6 style="color: aliceblue;"> call:970xxxxxxx</h6>
+              </div>
+              <div class="col">
+               <h6  style="color: aliceblue;"> location:hyderabad </h6>
+              </div>
+              <div class="col order-first">
+              <h6  style="color: aliceblue;"> E-mail us on:itsxxxxx@gmail.com </h6>
+              </div>
+            </div>
+  </div>
+            </div>
+              
+        </footer>
+
+        <!-- HTML -->
+
+<!--<div id="dataContainer"></div>-->
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+async function fetchProtectedData() {
+  const token = localStorage.getItem('token');
+  
+  if (!token) {
+    console.error('No token found');
+    return;
+  }
+  
+  try {
+    const response = await axios.get('/user/userhome', {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    const protectedData = response.data;
+    document.getElementById('protected-data').innerText = JSON.stringify(protectedData);
+  } catch (error) {
+    console.error('Failed to fetch protected data:', error.response.data.message);
+  }
+}
+
+// Fetch protected data when the page loads
+window.onload = fetchProtectedData;
+</script>
+<script>
+  document.getElementById('button1').addEventListener('click', function() {
+ fetchData('pet-grooming');
+ } );
+
+  document.getElementById('button2').addEventListener('click', function() {
+    fetchData('vetcare');
+  });
+
+  document.getElementById('button3').addEventListener('click', function() {
+    fetchData('pet-walking');
+  });
+
+  function fetchData(Service) {
+    axios.get(`/services/${Service}`)   
+       .then(response => {
+        // Handle the retrieved data (e.g., display it on the page)
+       window.location.href=`/services/${Service}`;
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }
+</script>
+
+
+  </body>
+</html> 
+

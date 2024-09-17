@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeInUp 0.6s ease-in-out;
+      
+    } 
+    
+  </style>
+
+</head>
+<body style="background-color: beige;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/dog11-removebg-preview.png" alt="Logo" width="50px" height="-200px" >
+            <h3 style="display: inline" >PURRFECTION </h3>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link" aria-current="page" href="dog_profile.html">Profile</a>
+        <a class="nav-link" href="#contact">Contact us</a>
+      </div>
+    </div>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <div id="search">
+            <div class="container-fluid">
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search services" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+        </div>
+      <!-- Services-->
+       <div class="services">
+            <div class="container mt-5">
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                    <div class="card animate">
+                      <img src="assets/images/free-dog-wash-removebg-preview.png" class="card-img-top" alt="Service 1">
+                      <div class="card-body">
+                        <h5 class="card-title">Pet grooming</h5>
+                        <a href="#" class="btn btn-primary">Browse</a>
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="card animate">
+                      <img src="assets/images/vetcare-removebg-preview.png" class="card-img-top" alt="Service 2" width="50%" height="50%">
+                      <div class="card-body">
+                        <h5 class="card-title">Vet care services</h5>
+                        <a href="#" class="btn btn-primary">Browse</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <div class="card animate">
+                      <img src="assets/images/dogsitting-removebg-preview.png" class="card-img-top" alt="Service 3">
+                      <div class="card-body">
+                        <h5 class="card-title">Dog sitting</h5>
+                        <a href="#" class="btn btn-primary">Browse</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <footer style="background-image: url('assets/images/footer-bg-v3.jpg'); padding: 30px;">
+            <div id="contact">
+        <div class="container text-center" >
+            <div class="row">
+              <div class="col order-last">
+              <h6 style="color: aliceblue;"> call:970xxxxxxx</h6>
+              </div>
+              <div class="col">
+               <h6  style="color: aliceblue;"> location:hyderabad </h6>
+              </div>
+              <div class="col order-first">
+              <h6  style="color: aliceblue;"> E-mail us on:itsxxxxx@gmail.com </h6>
+              </div>
+            </div>
+  </div>
+            </div>
+              
+        </footer>
+    </body>
+</html> 

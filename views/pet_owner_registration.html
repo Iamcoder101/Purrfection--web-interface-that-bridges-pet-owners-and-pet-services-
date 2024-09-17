@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>PET OWNER REGISTRATION FORM </title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+</head>
+<body style="background-color: rgba(189, 245, 189, 0.767);">
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-6 col-sm-12 offset-md-3">
+        <div class="card text-center" style="padding: 30px;margin: 60px;">
+        <div class="container text-center">
+            <div class="owner_register">
+                <header>
+                <h2>PURRFECTION</h2></header>
+                <h5 class="text-center mb-4" style="padding: 5px;">REGISTRATION</h5>
+                <form id="registrationForm" style="text-align: left;">
+                    <div class="form-group">
+                        <label for="username">Username: *</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email_address">email: *</label>
+                        <input type="text" class="form-control" id="email_address" name="email_address" required >
+                      </div>
+                      <div class="form-group">
+                        <label for="role">role:*</label>
+                        <select class="form-control" id="role" name="role">
+                          <option name="pet_owner">pet-owner</option>
+                          <option name="pet_service">pet_service</option>
+                        </select>
+                      </div>
+                  
+                      <div class="form-group">
+                        <label for="password">password: *</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                      </div>
+                        </form>
+            
+            </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+// Function to handle form submission
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+
+    // Convert form data to JSON object
+    const userData = {};
+    formData.forEach((value, key) => {
+        userData[key] = value;
+    });
+
+    // Send POST request to backend
+    axios.post('/auth/signup', userData)
+        .then(response => {
+            if (response.status === 200) {
+                // Extract role from the response data
+                const role = response.data; // Access the role property from the response data
+                console.log(role);
+                // Redirect based on the user's role
+                if (role === "pet-owner") {
+                    window.location.href = '/auth/dogprofile';
+                } else if (role === "pet_service") {
+                    window.location.href = '/auth/serviceprofile';
+                } else {
+                    console.error('Invalid role received from server');
+                    // Handle invalid role (e.g., show an error message)
+                }
+            } else {
+                console.error('Error registering user:', error);
+                // Do something with the error (e.g., show an error message)
+            }
+        })
+});
+
+  </script>
+  
+</body>
+    </html>

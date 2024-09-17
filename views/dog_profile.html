@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Pet Profile</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: black;">
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 col-sm-12 offset-md-2">
+            <div class="card" style="margin: 50px;padding: 40px;background-color: aliceblue;width:100%;">
+                <div class="card-title"><h3 style="text-align: center;">PURRFECTION</h3></div>
+                <div class="card-title"><h5>PROFILE</h5></div>
+                <form id="dog_profile">
+                  <div class="form-group">
+                    <label for="email_address">Email:</label>
+                    <input type="text" class="form-control" id="email_address" name="email_address" placeholder="Enter pet's name">
+                  </div>
+                   
+                        <div class="form-group">
+                          <label for="name">Name:</label>
+                          <input type="text" class="form-control" id="name" name ="name" placeholder="Enter pet's name">
+                        </div>
+                        <div class="form-group">
+                          <label for="breed">Breed:</label>
+                          <input type="text" class="form-control" id="breed" name="breed" placeholder="Enter pet's breed">
+                        </div>
+                        <div class="form-group">
+                          <label for="height">Height:</label>
+                          <input type="text" class="form-control" id="height" name="height" placeholder="Enter pet's height in cm">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight:</label>
+                            <input type="text" class="form-control" id="weight" name="weight" placeholder="Enter pet's weight in kgs">
+                          </div>
+                          <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="text" class="form-control" id="age" name="age" placeholder="Enter pet's age">
+                          </div>
+                        <div class="form-group">
+                          <label for="color">Color:</label>
+                          <input type="text" class="form-control" id="color"name="color" placeholder="Enter pet's color">
+                        </div>
+                        <div class="form-group">
+                          <label for="gender">Gender:</label>
+                          <select class="form-control" id="gender" name="gender">
+                            <option >Male</option>
+                            <option>Female</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="allergies">Allergies:</label>
+                          <textarea class="form-control" id="allergies" name="allergies" rows="3" placeholder="Enter pet's allergies"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="health-conditions">Health-conditions:</label>
+                            <textarea class="form-control" id="health_conditions" name="health_conditions" rows="3" placeholder="Enter pet's health-conditions"></textarea>
+                          </div>
+                          <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <img src="/dog2.png" width="50%" height="50%" style="float: inline-size  300px;">
+                          </div>        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+document.getElementById('dog_profile').addEventListener('submit', function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+
+    // Convert form data to JSON object
+    const dogData = {};
+    formData.forEach((value, key) => {
+        dogData[key] = value;
+    });
+
+    // Send POST request to backend
+    axios.post('/auth/dogprofile', dogData)
+        .then(response => {
+         if(response.status==200){   
+            window.location.href='/auth/login';
+            // Do something after successful registration (e.g., show a success message)
+        }
+        else {
+            console.error('Error registering user:', error);
+            // Do something with the error (e.g., show an error message)
+        };
+        
+});
+});
+
+  </script>
+  
+
+
+</body>
+</html>

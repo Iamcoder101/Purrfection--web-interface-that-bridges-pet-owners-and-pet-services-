@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Community Registration</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card mt-5">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Join Our Pet Community</h2>
+          <p class="card-text text-center mb-4">Are you a pet owner or a pet service provider?</p>
+          <form id="registrationForm">
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="userType" id="petOwner" value="petOwner" checked>
+                <label class="form-check-label" for="petOwner">
+                  Pet Owner
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="userType" id="serviceProvider" value="serviceProvider">
+                <label class="form-check-label" for="serviceProvider">
+                  Pet Service Provider
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Continue</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get the selected user type
+    var userType = document.querySelector('input[name="userType"]:checked').value;
+
+    // Redirect the user based on the selected user type
+    if (userType === "petOwner") {
+      window.location.href = "signup";
+
+      document.addEventListener('DOMContentLoaded', function() { 
+  const registerLink = document.querySelector('window.location.href ="signup";');
+ // const loginLink = document.querySelector('ahref="auth/login"');
+  registerLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      axios.post('auth/signup') // Fetch data from the 'auth/signup' route
+          .then(response => {
+              // Do something with the response, like updating the DOM
+              console.log(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+  });
+});
+     
+    } else if (userType === "serviceProvider") {
+      document.addEventListener('DOMContentLoaded', function() { 
+  const registerLink = document.querySelector('window.location.href ="signup";');
+ // const loginLink = document.querySelector('ahref="auth/login"');
+  registerLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      axios.post('auth/servicesignup') // Fetch data from the 'auth/signup' route
+          .then(response => {
+              // Do something with the response, like updating the DOM
+              console.log(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+  });
+});}
+  });
+</script>
+
+</body>
+</html>
+
+
+<!--
+document.addEventListener('DOMContentLoaded', function() {
+  const registerLink = document.querySelector('ahref="auth/signup"');
+  const loginLink = document.querySelector('ahref="auth/login"');
+  registerLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      axios.post('auth/signup') // Fetch data from the 'auth/signup' route
+          .then(response => {
+              // Do something with the response, like updating the DOM
+              console.log(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  loginLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      axios.post('auth/login') // Fetch data from the 'auth/signup' route
+          .then(response => {
+              // Do something with the response, like updating the DOM
+              console.log(response.data);
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+          });
+  });
+});
+
+-->

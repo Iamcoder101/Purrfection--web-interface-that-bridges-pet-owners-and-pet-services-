@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Pet Profile</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: black;">
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 col-sm-12 offset-md-2">
+            <div class="card" style="margin: 50px;padding: 40px;background-color: aliceblue;width:100%;">
+                <div class="card-title"><h3 style="text-align: center;">PURRFECTION</h3></div>
+                <div class="card-title"><h5>Service</h5></div>
+                <form id="serviceprofile">
+                  <div class="form-group">
+                    <label for="email_address">Email:</label>
+                    <input type="text" class="form-control" id="email_address" name="email_address"  placeholder="Enter your registered email">
+                  </div>
+                        <div class="form-group">
+                          <label for="title">title:</label>
+                          <input type="text" class="form-control" id="title" name="title" placeholder="Enter service name">
+                        </div>
+                    <div class="form-group">
+                          <label for="Service">Service:</label>
+                          <select class="form-control" id="Service" name="Service">
+                            <option>pet-grooming</option>
+                            <option>vetcare</option>
+                            <option>pet-walking</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="city">city:</label>
+                          <input type="text" class="form-control" id="city" name="city" placeholder="Enter city">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">state:</label>
+                            <input type="text" class="form-control" id="state" name="state" placeholder="Enter state">
+                          </div>
+                        <div class="form-group">
+                          <label for="description">description:</label>
+                          <textarea class="form-control" id="description" rows="3" placeholder="Enter service description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">address:</label>
+                            <textarea class="form-control" id="address" rows="3" name="address" placeholder="Enter address"></textarea>
+                          </div>
+                          <div class="form-group">
+                          <label for="charge_per_session">charge_per_session:</label>
+                          <input type="text" class="form-control" id="charge_per_session" name="charge_per_session" placeholder="Enter charge_per_session">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">contact:</label>
+                            <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter service conatct number">
+                          </div>
+                          <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                               </div>        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+
+document.getElementById('serviceprofile').addEventListener('submit', function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+
+    // Convert form data to JSON object
+    const serviceData = {};
+    formData.forEach((value, key) => {
+        serviceData[key] = value;
+    });
+
+    // Send POST request to backend
+    axios.post('/auth/serviceprofile', serviceData)
+        .then(response => {
+         if(response.status==200){   
+            window.location.href='/auth/login';
+            // Do something after successful registration (e.g., show a success message)
+        }
+        else {
+            console.error('Error registering user:', error);
+            // Do something with the error (e.g., show an error message)
+        };
+        
+});
+});
+
+  </script>
+  
+
+</body>
+
+</html>

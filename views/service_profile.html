@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Pet Profile</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body style="background-color: black;">
+<div class="container" >
+    <div class="row">
+        <div class="col-md-6 col-sm-12 offset-md-2">
+            <div class="card" style="margin: 50px;padding: 40px;background-color: aliceblue;width:100%;">
+                <div class="card-title"><h3 style="text-align: center;">PURRFECTION</h3></div>
+                <div class="card-title"><h5>SERVICE-PROFILE</h5></div>
+                <form>
+                   
+                        <div class="form-group">
+                          <label for="service-name">Service Name:</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter service name">
+                        </div>
+                        <div class="form-group">
+                          <label for="breed">Breed:</label>
+                          <input type="text" class="form-control" id="breed" placeholder="Enter pet's breed">
+                        </div>
+                        <div class="form-group">
+                          <label for="height">Height:</label>
+                          <input type="text" class="form-control" id="height" placeholder="Enter pet's height in cm">
+                        </div>
+                        <div class="form-group">
+                            <label for="weight">Weight:</label>
+                            <input type="text" class="form-control" id="weight" placeholder="Enter pet's weight in kgs">
+                          </div>
+                          <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="text" class="form-control" id="age" placeholder="Enter pet's age">
+                          </div>
+                        <div class="form-group">
+                          <label for="color">Color:</label>
+                          <input type="text" class="form-control" id="color" placeholder="Enter pet's color">
+                        </div>
+                        <div class="form-group">
+                          <label for="gender">Gender:</label>
+                          <select class="form-control" id="gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="allergies">Allergies:</label>
+                          <textarea class="form-control" id="description" rows="3" placeholder="Enter pet's allergies"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="health-condition">Health-conditions:</label>
+                            <textarea class="form-control" id="description" rows="3" placeholder="Enter pet's health-conditions"></textarea>
+                          </div>
+                          <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <img src="assets/images/dog2.png" width="50%" height="50%" style="float: inline-size: 300px;">
+                          </div>        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

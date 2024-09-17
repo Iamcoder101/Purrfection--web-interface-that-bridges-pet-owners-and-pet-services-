@@ -1,0 +1,125 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services</title>
+  <!-- Bootstrap CSS -->
+  <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <!--<style>
+    body {
+      padding: 20px;
+    }
+    .service-list {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Our Services</h1>
+    <% if (data && data.length) { %>
+      <div class="service-list">
+        <!-- Iterate over each service -->
+<!--        <% data.forEach(service => { %>
+          <div class="service">
+            <h4><%= service.title %></h4>
+            <p><%= service.description %></p>
+            <p><%= service.city %>, <%= service.state %></p>
+            <p>Address: <%= service.address %></p>
+            <p>Charge per session: <%= service.charge_per_session %></p>
+            <p>Contact: <%= service.contact %></p>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div>No services available</div>
+    <% } %>
+  </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <style>
+    body {
+      padding: 70px 20px 20px;
+    }
+    .service-list {
+      margin-top: 20px;
+    }
+    .card {
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .navbar {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body style="background-color: beige;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+         <img src="/dog11-removebg-preview.png" alt="Logo" width="50px" height="-200px" >
+        <h3 style="display: inline" >PURRFECTION </h3></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="mt-5">Our Services</h1>
+    <% if (data && data.length) { %>
+      <div class="service-list row">
+        <!-- Iterate over each service -->
+        <% data.forEach(service => { %>
+          <div class="col-md-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"><%= service.title %></h5>
+                <p class="card-text"><%= service.description %></p>
+                <p class="card-text"><%= service.city %>, <%= service.state %></p>
+                <p class="card-text"><strong>Address:</strong> <%= service.address %></p>
+                <p class="card-text"><strong>Charge per session:</strong> <%= service.charge_per_session %></p>
+                <p class="card-text"><strong>Contact:</strong> <%= service.contact %></p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="alert alert-warning" role="alert">No services available</div>
+    <% } %>
+  </div>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
